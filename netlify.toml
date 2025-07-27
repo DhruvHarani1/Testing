@@ -1,28 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = "build"
-  command = "CI= npm run build"
-
-[build.environment]
   NODE_VERSION = "18"
-  NPM_VERSION = "9"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[dev]
-  framework = "create-react-app"
-  targetPort = 3000
-  port = 3000
-  publish = "build"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[dev.install]
-  command = "npm install --legacy-peer-deps"
-
-[dev.start]
-  command = "npm start"
