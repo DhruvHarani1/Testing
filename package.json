@@ -18,11 +18,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-syntax-jsx": "^7.23.3",
     "@babel/preset-env": "^7.23.5",
-    "@babel/preset-react": "^7.23.3",
-    "@rollup/plugin-commonjs": "^24.1.0",
-    "@rollup/plugin-node-resolve": "^15.2.0",
-    "rollup": "^3.29.4",
-    "@rollup/plugin-terser": "^1.0.2"
+    "@babel/preset-react": "^7.23.3"
   },
   "scripts": {
     "start": "react-scripts start",
