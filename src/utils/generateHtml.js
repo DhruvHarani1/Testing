@@ -11,13 +11,9 @@ export const generateHtmlPage = (formData) => {
     mainPhotoCaption = 'A special moment together',
     galleryPhotos = [],
     handwrittenMessage = 'A special message just for you...',
-    quiz = { question: '', options: [] },
     reasons = [],
-    spotifyPlaylistUri = '',
-    mapLocations = [],
     futurePlans = [],
     wordCloud = 'Kind, Loving, Amazing',
-    reminderReel = [],
     timeCapsule = { unlockDate: '', message: '' },
     outroSecret = 'P.S. You mean the world to me.'
   } = formData;

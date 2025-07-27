@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateHtmlPage } from './utils/generateHtml';
+// generateHtmlPage import removed as it's not being used
 import ConfigForm from './components/ConfigForm';
 import PreviewAndShare from './components/PreviewAndShare';
 import './App.css';

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { uploadSurprisePage, saveSurpriseMetadata } from '../lib/supabase';
 import { generateHtmlPage, processImagesToBase64 } from '../utils/generateHtml';
 
@@ -9,7 +8,6 @@ const PreviewAndShare = ({ formData, onBack }) => {
   const [shareableLink, setShareableLink] = useState('');
   const [error, setError] = useState(null);
   const [isMobileView, setIsMobileView] = useState(false);
-  const navigate = useNavigate();
 
   // Process form data and upload to Supabase
   useEffect(() => {
