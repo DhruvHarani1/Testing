@@ -17,6 +17,7 @@ export const generateHtmlPage = (formData) => {
     mapLocations = [],
     futurePlans = [],
     wordCloud = 'Kind, Loving, Amazing',
+    // eslint-disable-next-line no-unused-vars
     reminderReel = [],
     timeCapsule = { unlockDate: '', message: '' },
     outroSecret = 'P.S. You mean the world to me.'
