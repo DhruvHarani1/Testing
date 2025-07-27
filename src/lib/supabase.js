@@ -1,9 +1,39 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+// Supabase configuration with environment variable fallbacks
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL || 'https://qtlxubxgvboddioewnth.supabase.co';
+const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0bHh1YnhndmJvZGRpb2V3bnRoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM2NDY2NzYsImV4cCI6MjA2OTIyMjY3Nn0.5pGxeOkIOjoGqZRVv5Y6WU5P5FZ4nm-UqTxGcsoCSME';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Validate configuration
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Supabase URL and Anon Key are required!');
+}
+
+// Create and export the Supabase client
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false, // We'll handle session persistence manually if needed
+    autoRefreshToken: true,
+    detectSessionInUrl: true
+  }
+});
+
+// Test the connection on startup
+const testConnection = async () => {
+  try {
+    const { data, error } = await supabase.from('surprises').select('*').limit(1);
+    if (error) {
+      console.error('Supabase connection error:', error.message);
+    } else {
+      console.log('Successfully connected to Supabase');
+    }
+  } catch (error) {
+    console.error('Error testing Supabase connection:', error.message);
+  }
+};
+
+// Run the connection test
+testConnection();
 
 // Function to upload HTML file to Supabase Storage
 export const uploadSurprisePage = async (htmlContent, fileName) => {
